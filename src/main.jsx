@@ -11,6 +11,7 @@ import ErrorPage from './components/ErrorPage/ErrorPage';
 import Home from './components/Home/Home';
 import Statistics from './components/Statistics/Statistics';
 import Dashboard from './components/Dashboard/Dashboard';
+import Contact from './components/Contact/Contact';
 
 
 const router = createBrowserRouter([
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: 'dashboard',
         element: <Dashboard></Dashboard>
+      },
+      {
+        path: 'contact',
+        element: <Contact></Contact>
       }
     ]
   },
