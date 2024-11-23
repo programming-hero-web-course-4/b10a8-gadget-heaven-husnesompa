@@ -12,6 +12,8 @@ import Home from './components/Home/Home';
 import Statistics from './components/Statistics/Statistics';
 import Dashboard from './components/Dashboard/Dashboard';
 import Contact from './components/Contact/Contact';
+import ProductDetail from './components/ProductDetail/ProductDetail';
+
 
 
 const router = createBrowserRouter([
@@ -24,13 +26,25 @@ const router = createBrowserRouter([
         path: '/',
         element: <Home></Home>
       },
+      // {
+      //   path: '/',
+      //   element: <Home></Home>,
+      //   loader: () => fetch('/productsData.json')
+      // },
       {
         path: 'statistics',
         element: <Statistics></Statistics>
       },
       {
         path: 'dashboard',
-        element: <Dashboard></Dashboard>
+        element: <Dashboard></Dashboard>,
+        loader: () => fetch('/productsData.json')
+      },
+      {
+        path: 'products/:productId',
+        element: <ProductDetail></ProductDetail>,
+        loader: () => fetch('/productsData.json')
+      
       },
       {
         path: 'contact',
