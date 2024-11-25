@@ -1,10 +1,19 @@
-import React from 'react';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import React, { useEffect, useState } from 'react';
 import { CiHeart } from 'react-icons/ci';
 import { MdAddShoppingCart } from 'react-icons/md';
 import { useLoaderData, useParams } from 'react-router-dom';
 import { addToStoredCartList, addToStoredWishList } from '../../utility/addToDb';
 
+
 const ProductDetail = () => {
+    const [disabledItems, setDisabledItems] = useState([]);
+    useEffect(() => {
+        const storedList = getStoredWishList();
+        setDisabledItems(storedList);
+    }, []);
+
     const { productId } = useParams();
     const data = useLoaderData();
     const product = data.find(product => product.product_id === productId);
@@ -15,9 +24,18 @@ const ProductDetail = () => {
     }
 
     const handleAddToWishListIcon = (id) => {
-        addToStoredWishList(id);
-        
+        if (!disabledItems.includes(id)) {
+            addToStoredWishList(id);
+            const updatedDisabledItems = [...disabledItems, id];
+            setDisabledItems(updatedDisabledItems);
+            localStorage.setItem("disabled-items", JSON.stringify(updatedDisabledItems)); // Persist to localStorage
+        }
     }
+
+    const getStoredWishList = () => {
+        const stored = localStorage.getItem("wish-list");
+        return stored ? JSON.parse(stored) : [];
+    };
     console.log(product)
 
     return (
@@ -94,13 +112,30 @@ const ProductDetail = () => {
 
                             {/* Actions Section */}
                             <div className="card-actions flex flex-col md:flex-row gap-2">
-                                <button onClick={ () =>handleAddToCartButton(productId)} className="btn btn-primary bg-[#9538E2] text-white flex items-center gap-2">
+                                <button onClick={() => handleAddToCartButton(productId)} className="btn btn-primary bg-[#9538E2] text-white flex items-center gap-2">
                                     Add To Cart
                                     <MdAddShoppingCart className="text-2xl text-gray-100" />
                                 </button>
-                                <div className="border-2 text-xl rounded-full p-2 bg-white text-black" onClick={() =>handleAddToWishListIcon(productId)}>
+                                <ToastContainer />
+                                {/* <div className="border-2 text-xl rounded-full p-2 bg-white text-black" onClick={() =>handleAddToWishListIcon(productId)}>
+                                    <CiHeart />
+                                </div> */}
+                                <div
+                                    onClick={() => {
+                                        if (!disabledItems.includes(product.product_id)) {
+                                            handleAddToWishListIcon(product.product_id);
+                                        }
+                                    }}
+                                    className={`mt-4 transition border-2 text-xl rounded-full ${disabledItems.includes(product.product_id)
+                                        ? "bg-gray-400 cursor-not-allowed"
+                                        : "bg-purple-600 text-white hover:bg-purple-700"
+                                        }`}
+                                >
                                     <CiHeart />
                                 </div>
+
+
+                                <ToastContainer />
                             </div>
                         </div>
                     </div>
@@ -108,6 +143,7 @@ const ProductDetail = () => {
 
             </div>
         </div>
+
     );
 };
 
