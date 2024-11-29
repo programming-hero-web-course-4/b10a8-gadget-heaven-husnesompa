@@ -1,17 +1,15 @@
-import React, { useEffect, useState } from 'react';
 import Product from '../Product/Product';
 
-const Products = () => {
-    const [products, setProducts] = useState([]);
-    useEffect(() =>{
-        fetch('/public/productsData.json')
-        .then(res => res.json())
-        .then(data => setProducts(data))
-    },[]);
+const Products = ({ allData, selectedCategory }) => {
+    console.log(allData);
+    const filteredProducts = selectedCategory
+        ? allData.filter((product) => product.category === selectedCategory)
+        : allData; // Show all products if no category is selected
     return (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+
             {
-                products.map(product => <Product product = {product} key={product.product_id}></Product>)
+                filteredProducts.map(product => <Product product={product} key={product.product_id}></Product>)
             }
         </div>
     );

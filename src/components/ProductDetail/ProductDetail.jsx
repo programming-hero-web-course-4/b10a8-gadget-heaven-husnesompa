@@ -16,6 +16,7 @@ const ProductDetail = () => {
 
     const { productId } = useParams();
     const data = useLoaderData();
+    console.log(data);
     const product = data.find(product => product.product_id === productId);
     const { product_id, product_title, product_image, price, description, specifications } = product;
 

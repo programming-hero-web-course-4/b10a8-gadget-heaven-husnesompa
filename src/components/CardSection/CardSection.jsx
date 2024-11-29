@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Products from '../Products/Products';
-import { Link } from 'react-router-dom';
 
-const CardSection = () => {
-    // const {category } = product;
+const CardSection = ({ allData }) => {
+    console.log(allData);
+    const [selectedCategory, setSelectedCategory] = useState("");
+    const categories = Array.from(
+        new Set(allData.map((product) => product.category))
+    );
+    console.log(categories);
     return (
         <div className="w-full">
             <div><h1 className='font-black text-center text-4xl pt-14 pb-8'>Explore Cutting-Edge Gadgets</h1></div>
@@ -21,19 +25,30 @@ const CardSection = () => {
                         <div className="drawer-side">
                             <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                             <ul className="menu bg-white text-base-content w-full lg:w-80 p-4 rounded-lg gap-4">
-                                <button className="btn btn-wide rounded-full">All Products</button>
-                                <Link to={``}><button className="btn btn-wide rounded-full">Laptops</button></Link>
-                                 <Link><button className="btn btn-wide rounded-full">Phones</button></Link> 
-                                <button className="btn btn-wide rounded-full">Accessories</button>
-                                <button className="btn btn-wide rounded-full">Smart Watches</button>
-                                <button className="btn btn-wide rounded-full">MacBook</button>
-                                <button className="btn btn-wide rounded-full">iPhone</button>
+
+                                <button
+                                    className={`btn btn-wide rounded-full ${selectedCategory === "" ? "btn-primary" : ""
+                                        }`}
+                                    onClick={() => setSelectedCategory("")}
+                                >
+                                    All
+                                </button>
+                                {categories.map((categoryName) => (
+                                    <button
+                                        key={categoryName}
+                                        className={`btn btn-wide rounded-full ${selectedCategory === categoryName ? "btn-primary" : ""
+                                            }`}
+                                        onClick={() => setSelectedCategory(categoryName)}
+                                    >
+                                        {categoryName}
+                                    </button>
+                                ))}
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div className="w-full md:w-4/5">
-                    <Products></Products>
+                    <Products allData={allData} selectedCategory={selectedCategory}></Products>
                 </div>
             </div>
         </div>

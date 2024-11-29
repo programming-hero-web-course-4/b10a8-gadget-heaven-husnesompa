@@ -15,6 +15,7 @@ const Dashboard = () => {
     const [wishList, setWishList] = useState([]);
     const [totalPrice, setTotalPrice] = useState(0);
     const allProducts = useLoaderData();
+    console.log(allProducts);
     const [sortedCartList, setSortedCartList] = useState([]); // Initialize as empty array
 
     useEffect(() => {
