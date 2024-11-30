@@ -13,7 +13,8 @@ import Statistics from './components/Statistics/Statistics';
 import Dashboard from './components/Dashboard/Dashboard';
 import Contact from './components/Contact/Contact';
 import ProductDetail from './components/ProductDetail/ProductDetail';
-
+import About from './components/About/About';
+import { HelmetProvider } from 'react-helmet-async';
 
 
 const router = createBrowserRouter([
@@ -27,11 +28,6 @@ const router = createBrowserRouter([
         element: <Home></Home>,
         loader: () => fetch('/productsData.json')
       },
-      // {
-      //   path: '/',
-      //   element: <Home></Home>,
-      //   loader: () => fetch('/productsData.json')
-      // },
       {
         path: 'statistics',
         element: <Statistics></Statistics>
@@ -45,7 +41,11 @@ const router = createBrowserRouter([
         path: 'products/:productId',
         element: <ProductDetail></ProductDetail>,
         loader: () => fetch('/productsData.json')
-      
+
+      },
+      {
+        path: 'about',
+        element: <About></About>
       },
       {
         path: 'contact',
@@ -58,6 +58,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <HelmetProvider>
+      <RouterProvider router={router} />
+    </HelmetProvider>
   </StrictMode>,
 )

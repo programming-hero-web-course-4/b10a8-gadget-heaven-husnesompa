@@ -1,22 +1,25 @@
 import React, { useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { getStoredCartList, getStoredWishList } from '../../utility/addToDb';
-import Product from '../Product/Product';
 import ListedProduct from '../ListedProduct/ListedProduct';
 import { HiAdjustmentsVertical } from "react-icons/hi2";
 import ListedProductInCart from '../ListedProductInCart/ListedProductInCart';
+import { Helmet } from 'react-helmet-async';
 
 
 const Dashboard = () => {
+    const navigate = useNavigate();
 
+    const [showModal, setShowModal] = useState(false);
     const [cartList, setCartList] = useState([]);
     const [wishList, setWishList] = useState([]);
     const [totalPrice, setTotalPrice] = useState(0);
-    const allProducts = useLoaderData();
-    console.log(allProducts);
     const [sortedCartList, setSortedCartList] = useState([]); // Initialize as empty array
+
+    const allProducts = useLoaderData();
+    // console.log(allProducts);
 
     useEffect(() => {
         const storedCartList = getStoredCartList();
@@ -36,13 +39,25 @@ const Dashboard = () => {
         const sortedList = [...cartList].sort((a, b) => b.price - a.price); // Copy before sorting
         setSortedCartList(sortedList);
     };
+    const handlePurchaseButton = () => {
+        setShowModal(true); // Show the modal
+        setCartList([]); // Clear the cart
+        setSortedCartList([]); // Clear sorted cart list
+        setTotalPrice(0); // Reset total price
+        localStorage.removeItem("cart-list"); // Clear cart in localStorage
+    };
 
+    const handleModalClose = () => {
+        setShowModal(false);
+        navigate("/"); // Navigate to home page
+    };
 
     return (
 
         <div className='w-full bg-slate-100'>
+            <Helmet><title>Gadget Heaven | Dashboard</title></Helmet>
             <div className='w-full bg-[#9538E2]'>
-                <div className="w-8/12 mx-auto text-center py-10">
+                <div className="md:w-8/12 mx-auto text-center py-10">
                     <h1 className="md:text-5xl text-3xl font-bold text-[#FFFFFF]">
                         Dashboard
                     </h1>
@@ -59,28 +74,36 @@ const Dashboard = () => {
                     </TabList>
                     <TabPanel className="bg-white">
                         <div className="flex flex-col gap-10">
-                            <div className="flex flex-row justify-between w-11/12 mx-auto pt-6">
+                            <div className="flex flex-col md:flex-row justify-between md:w-11/12 mx-auto pt-6 gap-4">
+                                {/* Cart Count */}
                                 <div>
-                                    <h2 className="font-bold text-2xl">Cart: {sortedCartList.length}</h2>
+                                    <h2 className="font-bold text-2xl text-center md:text-left">Cart: {sortedCartList.length}</h2>
                                 </div>
-                                <div className="flex gap-3">
-                                    <h2 className="font-bold text-2xl pt-2">
+
+                                {/* Total Cost and Buttons */}
+                                <div className="flex flex-col sm:flex-row gap-3 items-center justify-center md:justify-end">
+                                    <h2 className="font-bold text-2xl text-center md:text-right">
                                         Total Cost: {totalPrice.toFixed(2)}
                                     </h2>
                                     <button
                                         onClick={sortByPriceDescending}
-                                        className="btn btn-primary text-[#9538E2] bg-white rounded-full px-8 font-bold"
+                                        className="btn btn-primary text-[#9538E2] bg-white rounded-full px-6 font-bold w-full sm:w-auto"
                                     >
                                         Sort By Price <HiAdjustmentsVertical />
                                     </button>
-                                    <button className="btn btn-primary text-[#9538E2] bg-white rounded-full px-8 font-bold">
+                                    <button
+                                        onClick={handlePurchaseButton}
+                                        className="btn btn-primary text-[#9538E2] bg-white rounded-full px-6 font-bold w-full sm:w-auto"
+                                        disabled={cartList.length === 0 || totalPrice === 0}
+                                    >
                                         Purchase
                                     </button>
                                 </div>
                             </div>
+
                             {/* Render the sorted list */}
                             {sortedCartList.map((product) => (
-                                // <ListedProduct key={product.product_id} product={product}></ListedProduct>
+
                                 <ListedProductInCart key={product.product_id} product={product}></ListedProductInCart>
                             ))}
                         </div>
@@ -88,7 +111,7 @@ const Dashboard = () => {
 
                     <TabPanel>
                         <div className='flex flex-col gap-10'>
-                            <h2>Any content {wishList.length}</h2>
+
                             {
                                 wishList.map(product => <ListedProduct key={product.product_id} product={product}></ListedProduct>)
                             }
@@ -97,8 +120,23 @@ const Dashboard = () => {
                     </TabPanel>
                 </Tabs>
             </div>
-        </div>
 
+            {/* modal */}
+            {showModal && (
+                <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                    <div className="bg-white rounded-lg p-6 text-center">
+                        <h2 className="text-2xl font-bold text-purple-700">Congratulations!</h2>
+                        <p className="mt-4">Your purchase was successful.</p>
+                        <button
+                            onClick={handleModalClose}
+                            className="btn btn-primary mt-6 bg-purple-700 text-white rounded-full px-8"
+                        >
+                            Close
+                        </button>
+                    </div>
+                </div>
+            )}
+        </div>
     );
 };
 

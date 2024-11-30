@@ -17,6 +17,7 @@ const ProductDetail = () => {
     const { productId } = useParams();
     const data = useLoaderData();
     console.log(data);
+    
     const product = data.find(product => product.product_id === productId);
     const { product_id, product_title, product_image, price, description, specifications } = product;
 
@@ -37,7 +38,8 @@ const ProductDetail = () => {
         const stored = localStorage.getItem("wish-list");
         return stored ? JSON.parse(stored) : [];
     };
-    console.log(product)
+
+    // console.log(product)
 
     return (
         <div>
@@ -118,9 +120,6 @@ const ProductDetail = () => {
                                     <MdAddShoppingCart className="text-2xl text-gray-100" />
                                 </button>
                                 <ToastContainer />
-                                {/* <div className="border-2 text-xl rounded-full p-2 bg-white text-black" onClick={() =>handleAddToWishListIcon(productId)}>
-                                    <CiHeart />
-                                </div> */}
                                 <div
                                     onClick={() => {
                                         if (!disabledItems.includes(product.product_id)) {
@@ -134,8 +133,6 @@ const ProductDetail = () => {
                                 >
                                     <CiHeart />
                                 </div>
-
-
                                 <ToastContainer />
                             </div>
                         </div>

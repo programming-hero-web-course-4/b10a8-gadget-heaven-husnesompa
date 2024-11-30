@@ -2,7 +2,7 @@
     {
       "product_id": "P001",
       "product_title": "Gaming Laptop",
-      "product_image": "https://img.freepik.com/premium-vector/high-quality-laptop-smartphone-mockup-isolated-white-background-notebook-phone-device_659151-528.jpg?w=826",
+      "product_image": "https://images.unsplash.com/photo-1640695254597-7ee90eed00fb?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "category": "Laptop",
       "price": 1200.00,
       "description": "High-performance gaming laptop with advanced cooling system.",
@@ -80,7 +80,7 @@
     {
       "product_id": "P007",
       "product_title": "Flagship Smartphone",
-      "product_image": "https://plus.unsplash.com/premium_photo-1680985551009-05107cd2752c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cGhvbmV8ZW58MHx8MHx8fDA%3D",
+      "product_image": "https://images.unsplash.com/photo-1457682524032-465ef406d105?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "category": "Phone",
       "price": 999.00,
       "description": "The latest flagship smartphone with cutting-edge features.",
@@ -106,7 +106,7 @@
     {
       "product_id": "P009",
       "product_title": "MacBook Pro",
-      "product_image": "https://example.com/images/macbook_pro.jpg",
+      "product_image": "https://images.unsplash.com/photo-1651747137395-065bd3af97bb?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "category": "MacBook",
       "price": 2400.00,
       "description": "Powerful MacBook Pro with M2 chip for unparalleled performance.",
@@ -119,7 +119,7 @@
     {
       "product_id": "P010",
       "product_title": "MacBook Air",
-      "product_image": "https://example.com/images/macbook_air.jpg",
+      "product_image": "https://images.unsplash.com/photo-1493119508027-2b584f234d6c?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "category": "MacBook",
       "price": 1200.00,
       "description": "Lightweight and efficient MacBook Air with M1 chip.",
@@ -132,7 +132,7 @@
     {
       "product_id": "P011",
       "product_title": "Smart Watch Series 8",
-      "product_image": "https://example.com/images/smart_watch.jpg",
+      "product_image": "https://images.unsplash.com/photo-1495704907664-81f74a7efd9b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "category": "Smart Watch",
       "price": 399.00,
       "description": "Advanced smart watch with health tracking and GPS.",
@@ -145,7 +145,7 @@
     {
       "product_id": "P012",
       "product_title": "Budget Smart Watch",
-      "product_image": "https://example.com/images/budget_smart_watch.jpg",
+      "product_image": "https://images.unsplash.com/photo-1490915785914-0af2806c22b6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "category": "Smart Watch",
       "price": 99.00,
       "description": "Affordable smart watch with essential features.",
@@ -158,7 +158,7 @@
     {
       "product_id": "P013",
       "product_title": "Wireless Mouse",
-      "product_image": "https://example.com/images/wireless_mouse.jpg",
+      "product_image": "https://images.unsplash.com/photo-1527814050087-3793815479db?q=80&w=1456&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "category": "Accessories",
       "price": 60.00,
       "description": "Compact and ergonomic wireless mouse for everyday use.",
@@ -171,7 +171,7 @@
     {
       "product_id": "P014",
       "product_title": "Laptop Backpack",
-      "product_image": "https://example.com/images/laptop_backpack.jpg",
+      "product_image": "https://plus.unsplash.com/premium_photo-1681488088523-ef98813db228?q=80&w=1567&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "category": "Accessories",
       "price": 80.00,
       "description": "Durable laptop backpack with multiple compartments.",

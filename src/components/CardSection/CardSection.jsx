@@ -31,7 +31,7 @@ const CardSection = ({ allData }) => {
                                         }`}
                                     onClick={() => setSelectedCategory("")}
                                 >
-                                    All
+                                    All Products
                                 </button>
                                 {categories.map((categoryName) => (
                                     <button
