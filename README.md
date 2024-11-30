@@ -1,4 +1,7 @@
 # Gadget Heaven
+
+ Live Website Link : https://b10a8-gadget-heaven-husnesompa.netlify.app/
+ Requirement Link : file:///G:/Phero%20Course/Phero%20projects/All%20assignments%20Requirements/B10-A8-gadget-heaven-main/Batch-10_Assignment-08.pdf
 ## React Fundamental Concepts what I Used
 
 1. Functional Components: The project is built using functional components for better performance and cleaner code.
