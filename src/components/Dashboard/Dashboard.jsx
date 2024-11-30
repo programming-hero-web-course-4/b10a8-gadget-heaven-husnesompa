@@ -73,7 +73,7 @@ const Dashboard = () => {
                         <Tab className="btn btn-primary text-[#9538E2] bg-white  px-8 font-bold">Wishlist</Tab>
                     </TabList>
                     <TabPanel className="bg-white">
-                        <div className="flex flex-col gap-10">
+                        <div className="flex flex-col gap-10 py-6">
                             <div className="flex flex-col md:flex-row justify-between md:w-11/12 mx-auto pt-6 gap-4">
                                 {/* Cart Count */}
                                 <div>
@@ -110,7 +110,7 @@ const Dashboard = () => {
                     </TabPanel>
 
                     <TabPanel>
-                        <div className='flex flex-col gap-10'>
+                        <div className='flex flex-col gap-10 py-6'>
 
                             {
                                 wishList.map(product => <ListedProduct key={product.product_id} product={product}></ListedProduct>)

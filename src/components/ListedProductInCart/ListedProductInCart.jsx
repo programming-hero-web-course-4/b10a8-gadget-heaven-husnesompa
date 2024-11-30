@@ -5,7 +5,7 @@ const ListedProductInCart = ({ product }) => {
     const { product_id, product_title, product_image, price, description } = product;
     return (
 
-        <div className="w-11/12 mx-auto bg-white rounded-lg shadow-md p-4 flex flex-col md:flex-row items-start relative gap-2">
+        <div className="w-11/12 mx-auto  bg-white rounded-lg shadow-md p-4 flex flex-col md:flex-row items-start relative gap-2">
             {/* Close Icon */}
             <button
                 className="absolute top-2 right-2 text-red-500 hover:text-red-700 transition"

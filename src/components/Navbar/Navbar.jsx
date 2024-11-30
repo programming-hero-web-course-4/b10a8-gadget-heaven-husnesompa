@@ -11,7 +11,7 @@ const Navbar = () => {
     };
     return (
         <div className='bg-[#fcfbfb]'>
-            <div className="navbar w-11/12  rounded-t-btn px-20 mx-auto mt-6" style={styles}>
+            <div className="navbar w-11/12 px-4 sm:px-10 md:px-20 mx-auto mt-6 rounded-t-btn " style={styles}>
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -48,12 +48,13 @@ const Navbar = () => {
                         <li><NavLink to="/contact">Contact</NavLink></li>
                     </ul>
                 </div>
-                <div className="navbar-end gap-2">
+                <div className="navbar-end flex items-center gap-3">
                     <div className="border-2 text-xl rounded-full p-2 bg-white text-black">
                         <MdAddShoppingCart />
-                        {/* <span class="badge badge-sm indicator-item">8</span> */}
                     </div>
-                    <div className="border-2 text-xl rounded-full p-2 bg-white text-black"><CiHeart /></div>
+                    <div className="border-2 text-xl rounded-full p-2 bg-white text-black">
+                        <CiHeart />
+                    </div>
                 </div>
             </div>
         </div>

@@ -14,17 +14,17 @@ const CardSection = ({ allData }) => {
             <div className="w-11/12 mx-auto md:flex gap-20">
                 {/* sidebar */}
                 <div className="w-full md:w-1/5">
-                    <div className="drawer lg:drawer-open">
+                    <div className="drawer lg:drawer-open md:w-full">
                         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                         <div className="drawer-content flex flex-col items-center">
-                            {/* Page content here */}
-                            <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden mb-4">
+                            {/* Page content  */}
+                            <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden mb-10">
                                 Open Categories
                             </label>
                         </div>
                         <div className="drawer-side">
                             <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-                            <ul className="menu bg-white text-base-content w-full lg:w-80 p-4 rounded-lg gap-4">
+                            <ul className="menu bg-white text-base-content m-2 md:m-0  md:w-60 lg:w-80 p-4 rounded-lg gap-4">
 
                                 <button
                                     className={`btn btn-wide rounded-full ${selectedCategory === "" ? "btn-primary" : ""
@@ -52,7 +52,6 @@ const CardSection = ({ allData }) => {
                 </div>
             </div>
         </div>
-
     );
 };
 

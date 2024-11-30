@@ -5,7 +5,7 @@ const Footer = () => {
         <div>
             <div className="hero-content text-center">
                 <div className="max-w-md">
-                    <h1 className="text-5xl font-bold md:pt-10">Gadget Heaven</h1>
+                    <h1 className="text-3xl md:ext-5xl font-bold md:pt-10">Gadget Heaven</h1>
                     <p className="py-6">
                         Leading the way in cutting-edge technology and innovation.
                     </p>
